@@ -20,7 +20,10 @@
     "test": "vitest run",
     "lint": "eslint ."
   },
-  "repository": "https://github.com/msikma/bwscrep",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msikma/bwscrep.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2.9.0",
