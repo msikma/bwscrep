@@ -16,6 +16,9 @@ import {
 } from './lib/parse/index.ts'
 import type {BwReplay, BwScrepResult, ParsedScrepResult} from './types.ts'
 
+// Export all our types.
+export type * from './types.ts'
+
 /**
  * Generates structured Brood War replay data using the raw data parsed by screp.
  * 
