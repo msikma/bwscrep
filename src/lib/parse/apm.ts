@@ -21,7 +21,10 @@ function getPlayersWithCommands(players: BwPlayer[]) {
 /**
  * Commands are linked to players by slot id.
  */
-function getPlayerCommands(id: number, commands: BwCommand[]) {
+function getPlayerCommands(id: number, commands: BwCommand[] | null) {
+  if (commands === null) {
+    return []
+  }
   return commands
     .filter(cmd => cmd.PlayerID === id)
 }
@@ -112,7 +115,7 @@ export function calculateApmById(screpData: ScrepData): PlayerApmById {
   const playerApm = new Map()
 
   for (const id of playerIds) {
-    const playerCmds = getPlayerCommands(id, screpData.Commands!.Cmds!)
+    const playerCmds = getPlayerCommands(id, screpData.Commands!.Cmds)
     const apmGroups = getApmGroups(playerCmds, speed)
     const apmPerSecond = getApmPerMinute(apmGroups.apmCmds)
     const eapmPerSecond = getApmPerMinute(apmGroups.eapmCmds)
