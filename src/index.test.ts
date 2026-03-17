@@ -27,8 +27,8 @@ describe('@dada78641/bwscrep', () => {
       })
     }
     it(`includes an error count for buggy replays`, async () => {
-      const {parseErrorCount} = await getSingleTestResult('unk')
-      expect(parseErrorCount).toBeGreaterThan(0)
+      const res = await getSingleTestResult('unk')
+      expect(res.parseErrorCount).toBeGreaterThan(0)
     })
     it(`does not report an error count for valid replays`, async () => {
       const res1 = await getSingleTestResult('tvb', '241216_073941')
